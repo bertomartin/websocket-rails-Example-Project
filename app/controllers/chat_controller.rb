@@ -24,7 +24,6 @@ class ChatController < WebsocketRails::BaseController
   
   def client_connected
     # do something when a client connects
-    puts "execuitng?"
   end
   
   def new_message
