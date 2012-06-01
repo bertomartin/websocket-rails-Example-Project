@@ -1,1 +1,1 @@
-web: bundle exec thin-websocket -p $PORT start
+web: bundle exec thin-socketrails -p $PORT start
