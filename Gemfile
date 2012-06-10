@@ -5,7 +5,7 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+gem 'sqlite3'
 gem 'twitter-bootstrap-rails'
 gem 'eventmachine', '~> 0.12.2'
 #gem 'websocket-rack' , :path => '~/.pow/websocket-rack'
@@ -17,7 +17,7 @@ gem 'em-http-request', :require => 'em-http'
 gem 'addressable', :require => 'addressable/uri'
 gem 'thin'
 gem 'faye-websocket'
-gem 'websocket-rails' #, :path => '~/code/websocket-rails'
+gem 'websocket-rails', :path => '~/code/websocket-rails'
 gem 'yard'
 
 # Gems used only for assets and not required

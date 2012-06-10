@@ -10,6 +10,9 @@ jQuery(function() {
 	$("#user-name").val(current_user.user_name)
 	$("#full-name").val(current_user.full_name)
 	dispatcher = new ServerEventsDispatcher()
+  dispatcher.onopen(function() {
+    dispatcher.trigger('new_user',current_user)
+  })
 	
 	dispatcher.bind('new_message', function(message) {
 		var template = $("<div class='message' style='display:none'><label class='label label-info'>"+message.user_name+" "+message.received+"</label> "+message.msg_body+"</div>");
@@ -60,47 +63,3 @@ function send_message(socket) {
 	$("#message").val('')
 }
 
-var ServerEventsDispatcher = function(){
-	var conn = new WebSocket("ws://afternoon-rain-3426.herokuapp.com:80/websocket")
-	//192.168.0.16
-//	var conn = new WebSocket("ws://localhost:3000/websocket")
-	
-	var callbacks = {}
-	
-	this.bind = function(event_name, callback) {
-		callbacks[event_name] = callbacks[event_name] || [];
-		callbacks[event_name].push(callback)
-	}
-	
-	this.trigger = function(event_name, data) {
-		var payload = JSON.stringify([event_name,data])
-		conn.send( payload )
-		return this;
-	}
-	
-	conn.onopen = function(evt) {
-		dispatcher.trigger('new_user',current_user)
-	}
-	
-	conn.onmessage = function(evt) {
-		var data = JSON.parse(evt.data),
-			event_name = data[0],
-			message = data[1];
-		console.log(data)
-		dispatch(event_name, message)
-	}
-	
-	conn.onclose = function(evt) {
-		dispatch('connection_closed', '')
-	}
-	
-	var dispatch = function(event_name, message) {
-		var chain = callbacks[event_name]
-		if (typeof chain == 'undefined') return;
-		for(var i = 0; i < chain.length; i++) {
-			chain[i]( message )
-		}
-	}
-	
-	
-}

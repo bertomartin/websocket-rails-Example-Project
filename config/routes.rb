@@ -1,6 +1,7 @@
 
 Chat::Application.routes.draw do
   get "public/index"
+  get "http" => "http#index"
   root to: "public#index"
   
   
