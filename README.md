@@ -14,7 +14,7 @@ Check out `app/controllers/chat_controller.rb` for the example websocket control
 
 1. Clone the git repo
 2. Run the `bundle` command inside the directory
-3. Fire up the web server on port 3000 `thin-websocket -p 3000 start`
+3. Fire up the web server on port 3000 `thin-socketrails -p 3000 start`
 4. Browse to `http://localhost:3000` in a browser that supports WebSockets
 
 *You must start the app on port 3000 or the javascript client will not be able to connect*
