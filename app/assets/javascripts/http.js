@@ -3,7 +3,7 @@ var ServerEventsDispatcher = function(){
       open_handler = function(){},
       loaded = false,
       lastPos = 0,
-      client_id = '';
+      client_id = 0;
 
   this.get_client_id = function() {
     return client_id
@@ -13,10 +13,12 @@ var ServerEventsDispatcher = function(){
       var data = conn.responseText.substring(lastPos);
       lastPos = conn.responseText.length;
       var json_data = JSON.parse(data),
-          id = json_data[0],
-          event_name = json_data[1],
-          message = json_data[2];
-      client_id = id
+          event_name = json_data[0],
+          message = json_data[1];
+
+      if (client_id == 0 && event_name == 'client_connected') {
+        client_id = message['connection_id']
+      }
       
       if (loaded == false) {
         open_handler();

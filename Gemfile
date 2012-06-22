@@ -17,7 +17,7 @@ gem 'em-http-request', :require => 'em-http'
 gem 'addressable', :require => 'addressable/uri'
 gem 'thin'
 gem 'faye-websocket'
-gem 'websocket-rails' #, path => '~/code/websocket-rails'
+gem 'websocket-rails', :path => '~/code/websocket-rails'
 gem 'yard'
 
 # Gems used only for assets and not required
