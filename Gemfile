@@ -1,24 +1,32 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+platforms :jruby do
+  gem 'jruby-openssl'
+  gem 'activerecord-jdbcsqlite3-adapter', :require => 'jdbc-sqlite3', :require => 'arjdbc'
+  gem 'eventmachine', '1.0.0.beta.4'
+end
+platforms :ruby do
+  gem 'sqlite3'
+#  gem 'eventmachine'
+end
+
 gem 'twitter-bootstrap-rails'
-gem 'eventmachine', '~> 0.12.2'
-#gem 'websocket-rack' , :path => '~/.pow/websocket-rack'
 gem 'rack-fiber_pool',  :require => 'rack/fiber_pool'
-#gem 'em-mysqlplus'
-gem 'em-synchrony', :require => ['em-synchrony',
-                                 'em-synchrony/em-http']
-gem 'em-http-request', :require => 'em-http'
+#gem 'em-synchrony', :require => ['em-synchrony',
+#                                 'em-synchrony/em-http']
+#gem 'em-http-request', :require => 'em-http'
 gem 'addressable', :require => 'addressable/uri'
-gem 'thin'
+#gem 'thin' #, :path => '~/code/thin/pkg/thin-1.3.2'
 gem 'faye-websocket'
 gem 'websocket-rails' #, :path => '~/code/websocket-rails'
 gem 'yard'
+gem 'libwebsocket'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -33,6 +41,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'therubyrhino'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

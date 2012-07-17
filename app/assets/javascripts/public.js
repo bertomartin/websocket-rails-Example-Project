@@ -1,18 +1,14 @@
 jQuery(function() {
+  
 	$("#send").unbind()
 	
-	if(!("WebSocket" in window)) {
-	  alert("Sorry, the build of your browser does not support WebSockets. Please use latest Chrome or Webkit nightly");
-	  return;
-	}
-//	$('#edit-user-info').modal()
 	current_user = {user_name: "Guest", full_name: "Guest User"}
 	$("#user-name").val(current_user.user_name)
 	$("#full-name").val(current_user.full_name)
-	dispatcher = new ServerEventsDispatcher()
-  dispatcher.onopen(function() {
+	dispatcher = new WebSocketRails("localhost:4000/websocket",true);
+  dispatcher.on_open = function() {
     dispatcher.trigger('new_user',current_user)
-  })
+  }
 	
 	dispatcher.bind('new_message', function(message) {
 		var template = $("<div class='message' style='display:none'><label class='label label-info'>"+message.user_name+" "+message.received+"</label> "+message.msg_body+"</div>");

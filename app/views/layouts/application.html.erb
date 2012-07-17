@@ -24,7 +24,12 @@
     <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
     
+    <%= javascript_tag do %>
+      WEB_SOCKET_SWF_LOCATION = "WebSocketMain.swf";
+      WEB_SOCKET_FORCE_FLASH = false
+    <% end %>
     <%= javascript_include_tag "application" %>
+
   </head>
   <body>
 
@@ -55,6 +60,12 @@
       <div class="content">
         <div class="row">
           <div class="span9">
+            Hello <%= current_user.email if current_user.present? %>
+            <% if notice %>
+              <div class="notice"><%= notice %></div>
+            <% elsif alert %>
+              <div class="alert"><%= alert %></div>
+            <% end %>
             <%= yield %>
           </div>
           <div class="span1">&nbsp;</div>

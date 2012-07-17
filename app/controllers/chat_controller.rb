@@ -1,5 +1,7 @@
 class ChatController < WebsocketRails::BaseController
 
+  #include ActionController::Helpers
+
   observe {
     if data_store.each_user.count > 0
       puts 'it worked'
@@ -28,11 +30,13 @@ class ChatController < WebsocketRails::BaseController
   
   def new_message
     puts "Message from UID: #{client_id}\n"
+    #puts "Message from user: #{current_user.email}"
     @message_counter += 1
     broadcast_message :new_message, message
   end
   
   def new_user
+    #puts "request: #{request.inspect}"
     puts "storing user in data store\n"
     data_store[:user] = message
     broadcast_user_list
