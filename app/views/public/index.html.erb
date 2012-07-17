@@ -11,3 +11,8 @@
 		<button id="send" class="btn btn-primary">Send</button>
   </fieldset>
 </div>
+<%= javascript_tag do %>
+
+  window.dispatcher = new WebSocketRails("<%= request.host %>:<%= request.port %>/websocket",true);
+
+<% end %>

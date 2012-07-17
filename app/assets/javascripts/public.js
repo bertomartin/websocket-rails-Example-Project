@@ -5,7 +5,6 @@ jQuery(function() {
 	current_user = {user_name: "Guest", full_name: "Guest User"}
 	$("#user-name").val(current_user.user_name)
 	$("#full-name").val(current_user.full_name)
-	dispatcher = new WebSocketRails("localhost:4000/websocket",true);
   dispatcher.on_open = function() {
     dispatcher.trigger('new_user',current_user)
   }

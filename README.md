@@ -11,7 +11,7 @@ very basic features of the `websocket-rails` gem, it is now quite out of
 date and a poor example of structuring JavaScript in general. 
 
 I will be updating it within the next several days to demonstrate
-all of the new features that have been add to the gem recently.
+all of the new features that have been added to the gem recently.
 
 ## Event Routing
 
@@ -23,8 +23,8 @@ Check out `app/controllers/chat_controller.rb` for the example websocket control
 
 ## JavaScript Dispatcher
 
-This project does not currently demonstrate the usage of the
-`WebSocketRails` JavaScript client. I will be updating this very soon.
+ I will be updating this very soon.
+
 Please ignore most of the javascript implementation in this project for
 now and instead refer to the [Websocket Rails Wiki
 Guides](/DanKnox/websocket-rails/wiki)
