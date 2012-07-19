@@ -4,7 +4,7 @@ This is an example implementation of the [websocket-rails](https://github.com/Da
 
 ## Out of Date
 
-June 17 2012
+July 17 2012
 
 While this example project still provides a useful look at using the
 very basic features of the `websocket-rails` gem, it is now quite out of

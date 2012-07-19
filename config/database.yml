@@ -1,17 +1,16 @@
 common: &common
   adapter: sqlite3
-  username: dan
-  password: mele4all
-  host: localhost
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
 
 development:
   <<: *common
-  database: websocket_chat_dev
 
 test:
   <<: *common
-  database: websocket_chat_test
+  #database: websocket_chat_test
 
 production:
   <<: *common
-  database: websocket_chat
+  #database: websocket_chat
