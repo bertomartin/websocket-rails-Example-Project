@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require websocket_rails/main
-//= require_tree .
+//= require chat

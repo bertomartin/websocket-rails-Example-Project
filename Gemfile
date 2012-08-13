@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 gem 'devise'
+gem 'thin'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -18,15 +19,9 @@ end
 
 gem 'twitter-bootstrap-rails'
 gem 'rack-fiber_pool',  :require => 'rack/fiber_pool'
-#gem 'em-synchrony', :require => ['em-synchrony',
-#                                 'em-synchrony/em-http']
-#gem 'em-http-request', :require => 'em-http'
-gem 'addressable', :require => 'addressable/uri'
-#gem 'thin' #, :path => '~/code/thin/pkg/thin-1.3.2'
-gem 'faye-websocket'
 gem 'websocket-rails' #, :path => '~/code/websocket-rails'
-gem 'yard'
-gem 'libwebsocket'
+
+gem 'smt_rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
